@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jay Ar & Princess — Wedding</title>
+  <meta name="description" content="Jay Ar & Princess Wedding — July 23 • Guinayangan, Quezon" />
+  <meta name="theme-color" content="#cbb08a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/main.css" />
+</head>
+
+<body>
+  <div class="bg">
+    <div class="grain"></div>
+    <div class="vignette"></div>
+    <div class="aurora"></div>
+  </div>
+
+  <canvas id="dust"></canvas>
+
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top">
+      <div class="monogram" aria-hidden="true">J<span>&</span>P</div>
+      <div class="names">
+        <strong>Jay Ar &amp; Princess</strong>
+        <span>July 23 • Guinayangan, Quezon</span>
+      </div>
+    </a>
+
+    <div class="navlinks" role="navigation">
+      <a href="#story">Story</a>
+      <a href="#details">Details</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faqs">FAQs</a>
+    </div>
+
+    <div class="navcta">
+      <button class="btn primary" id="openRsvp">RSVP</button>
+      <button class="hamburger" id="openMenu" aria-label="Open menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile sheet -->
+  <div class="sheet" id="sheet" aria-hidden="true">
+    <div class="sheetPanel">
+      <header>
+        <div class="brand mini">
+          <div class="monogram" aria-hidden="true">J<span>&</span>P</div>
+          <div class="names">
+            <strong>Jay Ar &amp; Princess</strong>
+            <span>Wedding</span>
+          </div>
+        </div>
+        <button class="iconBtn" id="closeMenu" aria-label="Close menu">✕</button>
+      </header>
+      <div class="sheetLinks">
+        <a href="#story" data-close-sheet>Story</a>
+        <a href="#details" data-close-sheet>Details</a>
+        <a href="#gallery" data-close-sheet>Gallery</a>
+        <a href="#faqs" data-close-sheet>FAQs</a>
+        <button class="btn primary" id="openRsvp2">RSVP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="container heroGrid">
+        <div class="heroCard">
+          <div class="kicker"><span class="dot"></span> Save the date</div>
+          <h1 class="headline">
+            A love story written in <span class="gold">light</span>.
+          </h1>
+          <p class="subhead">
+            We’re getting married—and we’d love you to be part of the day.
+            Join us in <b>Guinayangan, Quezon</b> for vows, laughter, and a night that feels like a warm sunset.
+          </p>
+
+          <div class="heroMeta">
+            <div class="pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 3v3M17 3v3M4 8h16M6 6h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <span><b>July 23, 2026</b> • Wednesday</span>
+            </div>
+            <div class="pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <span>Ceremony <b>3:30 PM</b> • Reception <b>5:00 PM</b></span>
+            </div>
+            <div class="pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <span>Guinayangan, Quezon</span>
+            </div>
+          </div>
+
+          <div class="heroActions">
+            <a class="btn primary" href="#details">See details</a>
+            <button class="btn" id="addToCal">Add to calendar</button>
+            <a class="btn" href="#gallery">Preview</a>
+          </div>
+        </div>
+
+        <div class="heroRight">
+          <div class="portrait">
+            <div class="portraitImg" id="heroImg" aria-label="Wedding photo placeholder"></div>
+            <div class="frame"></div>
+
+            <!-- Unique timer -->
+            <div class="timerCard" aria-label="Countdown timer">
+              <div class="timerTop">
+                <div class="badge">COUNTDOWN</div>
+                <div class="mini">until we say “I do”</div>
+              </div>
+
+              <div class="timerGrid">
+                <div class="flip" data-unit="days">
+                  <div class="label">Days</div>
+                  <div class="flipBox" aria-live="polite">
+                    <span class="flipTop" data-current>—</span>
+                    <span class="flipBottom" data-next>—</span>
+                    <span class="shine"></span>
+                  </div>
+                </div>
+                <div class="flip" data-unit="hours">
+                  <div class="label">Hours</div>
+                  <div class="flipBox">
+                    <span class="flipTop" data-current>—</span>
+                    <span class="flipBottom" data-next>—</span>
+                    <span class="shine"></span>
+                  </div>
+                </div>
+                <div class="flip" data-unit="mins">
+                  <div class="label">Mins</div>
+                  <div class="flipBox">
+                    <span class="flipTop" data-current>—</span>
+                    <span class="flipBottom" data-next>—</span>
+                    <span class="shine"></span>
+                  </div>
+                </div>
+                <div class="flip" data-unit="secs">
+                  <div class="label">Secs</div>
+                  <div class="flipBox">
+                    <span class="flipTop" data-current>—</span>
+                    <span class="flipBottom" data-next>—</span>
+                    <span class="shine"></span>
+                  </div>
+                </div>
+
+                <div class="orbit" aria-hidden="true">
+                  <svg viewBox="0 0 120 120" width="120" height="120">
+                    <defs>
+                      <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="rgba(203,176,138,.95)"/>
+                        <stop offset="0.55" stop-color="rgba(244,226,198,.70)"/>
+                        <stop offset="1" stop-color="rgba(203,176,138,.10)"/>
+                      </linearGradient>
+                    </defs>
+                    <circle cx="60" cy="60" r="48" class="ringBase"/>
+                    <circle cx="60" cy="60" r="48" class="ringProg" id="ringProg"/>
+                    <circle cx="60" cy="12" r="2.8" class="ringDot" id="ringDot"/>
+                  </svg>
+                  <div class="orbitText">
+                    <b id="countdownText">—</b>
+                    <span>days left</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timerActions">
+                <button class="chip" id="copyDetails">Copy venue + time</button>
+                <button class="chip primary" id="openRsvp3">RSVP</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="miniStrip">
+            <div class="miniCard">
+              <span class="miniTag">Theme</span>
+              <strong>Light brown</strong>
+              <span class="miniDesc">Warm neutrals, sunset tones</span>
+            </div>
+            <div class="miniCard">
+              <span class="miniTag">Note</span>
+              <strong>Unplugged vows</strong>
+              <span class="miniDesc">Phones away during ceremony</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="story" class="section">
+      <div class="container">
+        <header class="sectionHead">
+          <div>
+            <div class="kicker"><span class="dot"></span> Our story</div>
+            <h2 class="reveal">Warm, simple, true</h2>
+          </div>
+          <p class="muted reveal">
+            Replace this with your real story—this layout is built to look premium even with short text.
+          </p>
+        </header>
+
+        <div class="storyGrid">
+          <article class="storyCard reveal">
+            <div class="badge">Timeline</div>
+
+            <div class="step">
+              <div class="num">01</div>
+              <div>
+                <strong>We met</strong>
+                <span>One “hi” turned into the easiest conversation.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">02</div>
+              <div>
+                <strong>We chose each other</strong>
+                <span>In big plans and quiet ordinary days.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">03</div>
+              <div>
+                <strong>The yes</strong>
+                <span>A promise we’re grateful to celebrate with you.</span>
+              </div>
+            </div>
+
+            <div class="note">
+              <span class="spark">✦</span>
+              <p class="muted">
+                Tip: You can change these lines in <code>index.html</code> anytime.
+              </p>
+            </div>
+          </article>
+
+          <div class="photoGrid">
+            <figure class="photo reveal" style="background-image:url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1400&q=80');">
+              <figcaption><span>Golden</span><em>sunset tones</em></figcaption>
+            </figure>
+            <figure class="photo reveal" style="background-image:url('https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?auto=format&fit=crop&w=1400&q=80');">
+              <figcaption><span>Soft</span><em>film look</em></figcaption>
+            </figure>
+            <figure class="photo reveal" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80');">
+              <figcaption><span>Gather</span><em>with love</em></figcaption>
+            </figure>
+            <figure class="photo reveal" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=80');">
+              <figcaption><span>Details</span><em>small things</em></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details" class="section">
+      <div class="container">
+        <header class="sectionHead">
+          <div>
+            <div class="kicker"><span class="dot"></span> Wedding details</div>
+            <h2 class="reveal">The plan</h2>
+          </div>
+          <p class="muted reveal">Edit these cards based on your actual schedule + venue info.</p>
+        </header>
+
+        <div class="cards3">
+          <div class="card reveal">
+            <div class="cardTitle"><span class="badge">Venue</span></div>
+            <div class="list">
+              <div class="li">
+                <div class="icon">📍</div>
+                <div>
+                  <strong>Guinayangan, Quezon</strong>
+                  <span>(Add exact church/reception name + address)</span>
+                </div>
+              </div>
+              <div class="li">
+                <div class="icon">🗺️</div>
+                <div>
+                  <strong>Maps link</strong>
+                  <span><a class="link" href="https://maps.google.com" target="_blank" rel="noreferrer">Open Google Maps</a></span>
+                </div>
+              </div>
+              <div class="li">
+                <div class="icon">⏱️</div>
+                <div>
+                  <strong>Arrival</strong>
+                  <span>Please arrive by 3:00 PM for seating.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="cardTitle"><span class="badge">Schedule</span></div>
+            <div class="list">
+              <div class="li">
+                <div class="icon">💍</div>
+                <div>
+                  <strong>Ceremony</strong>
+                  <span>3:30 PM • vows + ring exchange</span>
+                </div>
+              </div>
+              <div class="li">
+                <div class="icon">🥂</div>
+                <div>
+                  <strong>Photos + cocktail</strong>
+                  <span>4:30 PM • quick moments</span>
+                </div>
+              </div>
+              <div class="li">
+                <div class="icon">🎶</div>
+                <div>
+                  <strong>Reception</strong>
+                  <span>5:00 PM • dinner + program</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="cardTitle"><span class="badge">Dress code</span></div>
+            <div class="list">
+              <div class="li">
+                <div class="icon">🤎</div>
+                <div>
+                  <strong>Warm neutrals</strong>
+                  <span>Light brown / beige / champagne / cream</span>
+                </div>
+              </div>
+              <div class="li">
+                <div class="icon">🧥</div>
+                <div>
+                  <strong>Comfort</strong>
+                  <span>Bring a layer for evening breeze.</span>
+                </div>
+              </div>
+              <div class="li">
+                <div class="icon">📵</div>
+                <div>
+                  <strong>Unplugged</strong>
+                  <span>Please keep phones away during vows.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wideCard reveal">
+          <div class="wideLeft">
+            <div class="badge">Quick note</div>
+            <h3>We can’t wait to celebrate with you.</h3>
+            <p class="muted">Tap RSVP to confirm. (Demo form saves locally + can download JSON.)</p>
+          </div>
+          <div class="wideRight">
+            <button class="btn" id="openRsvp4">RSVP</button>
+            <button class="btn primary" id="shareLink">Copy website link</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="container">
+        <header class="sectionHead">
+          <div>
+            <div class="kicker"><span class="dot"></span> Gallery</div>
+            <h2 class="reveal">Preview vibes</h2>
+          </div>
+          <p class="muted reveal">Click any photo to open. Swap these with your prenup shots later.</p>
+        </header>
+
+        <div class="gallery">
+          <div class="g big reveal" data-full="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=2200&q=85"
+            style="background-image:url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80');">
+            <span>Moment</span>
+          </div>
+          <div class="g mid reveal" data-full="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=2200&q=85"
+            style="background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80');">
+            <span>Vows</span>
+          </div>
+          <div class="g mid reveal" data-full="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?auto=format&fit=crop&w=2200&q=85"
+            style="background-image:url('https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?auto=format&fit=crop&w=1200&q=80');">
+            <span>Glow</span>
+          </div>
+          <div class="g sml reveal" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=85"
+            style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1100&q=80');">
+            <span>Family</span>
+          </div>
+          <div class="g sml reveal" data-full="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2200&q=85"
+            style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1100&q=80');">
+            <span>Details</span>
+          </div>
+          <div class="g sml reveal" data-full="https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=2200&q=85"
+            style="background-image:url('https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1100&q=80');">
+            <span>Bloom</span>
+          </div>
+          <div class="g big reveal" data-full="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=2200&q=85"
+            style="background-image:url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1400&q=80');">
+            <span>Forever</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faqs" class="section">
+      <div class="container">
+        <header class="sectionHead">
+          <div>
+            <div class="kicker"><span class="dot"></span> FAQs</div>
+            <h2 class="reveal">Quick answers</h2>
+          </div>
+          <p class="muted reveal">Update based on your wedding guidelines.</p>
+        </header>
+
+        <div class="faqGrid">
+          <details class="reveal">
+            <summary>Can we bring kids?<span class="plus">+</span></summary>
+            <p>We love your little ones, but for this celebration we’re keeping it adults-only.</p>
+          </details>
+          <details class="reveal">
+            <summary>Is there parking?<span class="plus">+</span></summary>
+            <p>Limited parking is available. Please carpool if possible.</p>
+          </details>
+          <details class="reveal">
+            <summary>What time should we arrive?<span class="plus">+</span></summary>
+            <p>Please arrive by 3:00 PM so we can start on time.</p>
+          </details>
+          <details class="reveal">
+            <summary>Can we take photos during the ceremony?<span class="plus">+</span></summary>
+            <p>We’d love an unplugged ceremony. Feel free to take photos after the vows.</p>
+          </details>
+        </div>
+
+        <footer class="footer reveal">
+          <div class="brand foot">
+            <div class="monogram" aria-hidden="true">J<span>&</span>P</div>
+            <div class="names">
+              <strong>Jay Ar &amp; Princess</strong>
+              <span class="muted">July 23, 2026 • Guinayangan, Quezon</span>
+            </div>
+          </div>
+          <div class="chips">
+            <a class="chip" href="#">Instagram</a>
+            <a class="chip" href="#">Facebook</a>
+            <a class="chip" href="#">Email</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- RSVP modal -->
+  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="RSVP form">
+      <div class="modalHeader">
+        <strong>RSVP</strong>
+        <button class="iconBtn" id="closeRsvp" aria-label="Close RSVP">✕</button>
+      </div>
+      <form class="modalBody" id="rsvpForm">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" placeholder="e.g., Juan Dela Cruz" required />
+        </div>
+        <div class="field">
+          <label for="contact">Contact</label>
+          <input id="contact" name="contact" placeholder="e.g., 09xx / email" required />
+        </div>
+        <div class="field">
+          <label for="attending">Attending?</label>
+          <select id="attending" name="attending" required>
+            <option value="yes">Yes, I'll be there</option>
+            <option value="no">Sorry, can't make it</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="guests">Guests</label>
+          <select id="guests" name="guests" required>
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+          </select>
+        </div>
+        <textarea id="notes" name="notes" placeholder="Notes (dietary restrictions, message, etc.)"></textarea>
+        <div class="modalActions">
+          <button type="button" class="btn" id="downloadRsvp">Download RSVP (JSON)</button>
+          <button type="submit" class="btn primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="modalOverlay" id="lightbox" aria-hidden="true">
+    <div class="modal modalWide">
+      <div class="modalHeader">
+        <strong>Photo</strong>
+        <button class="iconBtn" id="closeLightbox" aria-label="Close photo">✕</button>
+      </div>
+      <div class="imgWrap">
+        <img id="lightboxImg" alt="Gallery full" />
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Copied!</div>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jay Ar & Princess — Wedding</title>
+  <meta name="description" content="Jay Ar & Princess Wedding — July 23 • Guinayangan, Quezon" />
+  <meta name="theme-color" content="#f2e7d6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/main.css" />
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="paper"></div><div class="softGlow"></div><div class="grain"></div>
+  </div>
+  <canvas id="petals" aria-hidden="true"></canvas>
+
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <div class="monogram" aria-hidden="true">J<span>&</span>P</div>
+      <div class="names">
+        <strong>Jay Ar <span class="amp">&amp;</span> Princess</strong>
+        <span>July 23 • Guinayangan, Quezon</span>
+      </div>
+    </a>
+    <div class="navlinks">
+      <a href="#story">Story</a><a href="#details">Details</a><a href="#gallery">Gallery</a>
+      <a href="#location">Location</a><a href="#rsvp">RSVP</a>
+    </div>
+    <div class="navcta">
+      <button class="iconBtn" id="musicBtn" aria-label="Toggle music"><span class="dot"></span><span id="musicLabel">Music</span></button>
+      <button class="btn primary" id="openRsvpTop">RSVP</button>
+      <button class="hamburger" id="openMenu" aria-label="Open menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="sheet" id="sheet" aria-hidden="true">
+    <div class="sheetPanel">
+      <header>
+        <div class="brand mini">
+          <div class="monogram" aria-hidden="true">J<span>&</span>P</div>
+          <div class="names"><strong>Jay Ar &amp; Princess</strong><span>Wedding</span></div>
+        </div>
+        <button class="close" id="closeMenu" aria-label="Close menu">✕</button>
+      </header>
+      <div class="sheetLinks">
+        <a href="#story" data-close-sheet>Story</a>
+        <a href="#details" data-close-sheet>Details</a>
+        <a href="#gallery" data-close-sheet>Gallery</a>
+        <a href="#location" data-close-sheet>Location</a>
+        <a href="#rsvp" data-close-sheet>RSVP</a>
+        <button class="btn primary" id="openRsvp2">RSVP</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="bgm" preload="auto" loop><source src="./assets/wedding-ambient.wav" type="audio/wav" /></audio>
+
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="container heroGrid">
+        <div class="heroLeft">
+          <div class="kicker reveal"><span class="kdot"></span> Save the date</div>
+          <h1 class="headline reveal">Jay Ar <span class="script">&amp;</span> Princess</h1>
+          <p class="lead reveal">Please join us as we celebrate our wedding day—filled with love, laughter, and a little bit of magic in <b>Guinayangan, Quezon</b>.</p>
+
+          <div class="heroChips reveal">
+            <div class="chip"><b>July 23, 2026</b><span>Thursday</span></div>
+            <div class="chip"><b>3:30 PM</b><span>Ceremony</span></div>
+            <div class="chip"><b>5:00 PM</b><span>Reception</span></div>
+            <div class="chip"><b>Beige Theme</b><span>Warm neutrals</span></div>
+          </div>
+
+          <div class="heroBtns reveal">
+            <a class="btn primary" href="#details">See details</a>
+            <a class="btn" href="#location">View map</a>
+            <button class="btn" id="addToCal">Add to calendar</button>
+          </div>
+
+          <div class="signature reveal"><span class="sig">with love</span><span class="line"></span></div>
+        </div>
+
+        <div class="heroRight">
+          <div class="photoCard reveal">
+            <div class="photo" aria-label="Hero photo"></div>
+            <div class="photoOverlay"></div>
+
+            <div class="countdown">
+              <div class="countTop"><span class="badge">COUNTDOWN</span><span class="mini">until “I do”</span></div>
+
+              <div class="flipGrid">
+                <div class="flip" data-unit="days"><span class="label">Days</span><div class="flipBox"><span class="cur">—</span><span class="nxt">—</span></div></div>
+                <div class="flip" data-unit="hours"><span class="label">Hours</span><div class="flipBox"><span class="cur">—</span><span class="nxt">—</span></div></div>
+                <div class="flip" data-unit="mins"><span class="label">Mins</span><div class="flipBox"><span class="cur">—</span><span class="nxt">—</span></div></div>
+                <div class="flip" data-unit="secs"><span class="label">Secs</span><div class="flipBox"><span class="cur">—</span><span class="nxt">—</span></div></div>
+
+                <div class="ringWrap" aria-hidden="true">
+                  <svg viewBox="0 0 120 120" width="120" height="120">
+                    <defs>
+                      <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="rgba(187,160,122,.95)"/>
+                        <stop offset="0.55" stop-color="rgba(246,233,214,.80)"/>
+                        <stop offset="1" stop-color="rgba(187,160,122,.12)"/>
+                      </linearGradient>
+                    </defs>
+                    <circle cx="60" cy="60" r="48" class="ringBase"/>
+                    <circle cx="60" cy="60" r="48" class="ringProg" id="ringProg"/>
+                    <circle cx="60" cy="12" r="2.8" class="ringDot" id="ringDot"/>
+                  </svg>
+                  <div class="ringText"><b id="daysLeft">—</b><span>days left</span></div>
+                </div>
+              </div>
+
+              <div class="countActions">
+                <button class="pillBtn" id="copyDetails">Copy details</button>
+                <button class="pillBtn primary" id="openRsvp3">RSVP</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="miniCards reveal">
+            <div class="mini"><span class="miniTitle">Dress code</span><b>Beige / Cream</b><span class="miniText">Warm neutrals welcomed</span></div>
+            <div class="mini"><span class="miniTitle">Note</span><b>Unplugged vows</b><span class="miniText">Phones away during ceremony</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="section">
+      <div class="container">
+        <header class="sectionHead">
+          <div><span class="sectionKicker reveal"><span class="kdot"></span> Our story</span><h2 class="reveal">From “hello” to forever</h2></div>
+          <p class="sub reveal">Sample story timeline — palitan natin later ng real story n’yo.</p>
+        </header>
+
+        <div class="storyGrid">
+          <article class="storyCard reveal">
+            <h3 class="storyTitle">How it started</h3>
+            <p class="sub">We met in the most ordinary way—and somehow it became the most beautiful beginning. From late-night talks to quiet “I’m here” moments, love kept showing up.</p>
+            <div class="steps">
+              <div class="step"><div class="num">01</div><div><b>First meet</b><span>A simple conversation that felt easy.</span></div></div>
+              <div class="step"><div class="num">02</div><div><b>First date</b><span>We laughed like we already knew each other.</span></div></div>
+              <div class="step"><div class="num">03</div><div><b>The proposal</b><span>A quiet moment. A loud “YES”.</span></div></div>
+              <div class="step"><div class="num">04</div><div><b>Wedding day</b><span>Now we celebrate with you.</span></div></div>
+            </div>
+          </article>
+
+          <div class="storyPhotos">
+            <figure class="ph reveal" style="background-image:url('./assets/hero.jpg');"><figcaption><span>Warm</span><em>beige tones</em></figcaption></figure>
+            <figure class="ph reveal" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=80');"><figcaption><span>Soft</span><em>film look</em></figcaption></figure>
+            <figure class="ph reveal" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80');"><figcaption><span>Details</span><em>little things</em></figcaption></figure>
+            <figure class="ph reveal" style="background-image:url('https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1400&q=80');"><figcaption><span>Bloom</span><em>romance</em></figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details" class="section alt">
+      <div class="container">
+        <header class="sectionHead">
+          <div><span class="sectionKicker reveal"><span class="kdot"></span> Wedding details</span><h2 class="reveal">The plan for the day</h2></div>
+          <p class="sub reveal">Schedule + dress code + reminders.</p>
+        </header>
+
+        <div class="cards3">
+          <div class="card reveal"><span class="badge">Schedule</span>
+            <div class="list">
+              <div class="li"><span class="ico">💍</span><div><b>Ceremony</b><span>3:30 PM • Vows + rings</span></div></div>
+              <div class="li"><span class="ico">📸</span><div><b>Photos</b><span>4:30 PM • Couple + family</span></div></div>
+              <div class="li"><span class="ico">🥂</span><div><b>Reception</b><span>5:00 PM • Dinner + program</span></div></div>
+            </div>
+          </div>
+          <div class="card reveal"><span class="badge">Dress code</span>
+            <div class="list">
+              <div class="li"><span class="ico">🤍</span><div><b>Beige / Cream</b><span>Warm neutrals encouraged</span></div></div>
+              <div class="li"><span class="ico">👗</span><div><b>Semi-formal</b><span>Comfortable but elegant</span></div></div>
+              <div class="li"><span class="ico">🧥</span><div><b>Bring a layer</b><span>Evenings can be breezy</span></div></div>
+            </div>
+          </div>
+          <div class="card reveal"><span class="badge">Gentle reminders</span>
+            <div class="list">
+              <div class="li"><span class="ico">📵</span><div><b>Unplugged vows</b><span>Phones away during ceremony</span></div></div>
+              <div class="li"><span class="ico">⏱️</span><div><b>Arrive early</b><span>Be seated by 3:00 PM</span></div></div>
+              <div class="li"><span class="ico">🎁</span><div><b>Gifts</b><span>Your presence is our present</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wide reveal">
+          <div><span class="badge">Quick RSVP</span><h3 class="wideTitle">Tap RSVP and we’ll handle the rest ✨</h3><p class="sub">May sample RSVP na (saved locally + list).</p></div>
+          <div class="wideBtns"><button class="btn primary" id="openRsvp4">RSVP now</button><button class="btn" id="scrollToRsvp">Go to RSVP section</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="container">
+        <header class="sectionHead">
+          <div><span class="sectionKicker reveal"><span class="kdot"></span> Gallery</span><h2 class="reveal">A little preview</h2></div>
+          <p class="sub reveal">Click any photo to open (lightbox).</p>
+        </header>
+
+        <div class="gallery">
+          <div class="g big reveal" data-full="./assets/hero.jpg" style="background-image:url('./assets/hero.jpg');"><span>Moment</span></div>
+          <div class="g mid reveal" data-full="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=2200&q=85" style="background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80');"><span>Vows</span></div>
+          <div class="g mid reveal" data-full="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?auto=format&fit=crop&w=2200&q=85" style="background-image:url('https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?auto=format&fit=crop&w=1200&q=80');"><span>Glow</span></div>
+          <div class="g sml reveal" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=85" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1100&q=80');"><span>Family</span></div>
+          <div class="g sml reveal" data-full="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2200&q=85" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1100&q=80');"><span>Details</span></div>
+          <div class="g sml reveal" data-full="https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=2200&q=85" style="background-image:url('https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1100&q=80');"><span>Bloom</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location" class="section alt">
+      <div class="container">
+        <header class="sectionHead">
+          <div><span class="sectionKicker reveal"><span class="kdot"></span> Location</span><h2 class="reveal">Guinayangan, Quezon</h2></div>
+          <p class="sub reveal">Google Map embed (sample) + open in Maps + copy address.</p>
+        </header>
+
+        <div class="locGrid">
+          <div class="locCard reveal">
+            <span class="badge">Venue</span>
+            <h3 class="locTitle">Main Ceremony + Reception</h3>
+            <p class="sub">Replace this with the exact venue name + full address.</p>
+            <div class="locBtns">
+              <a class="btn primary" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=Guinayangan%2C%20Quezon">Open in Google Maps</a>
+              <button class="btn" id="copyAddress">Copy address</button>
+            </div>
+          </div>
+
+          <div class="mapCard reveal">
+            <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125676.35336657938!2d122.345!3d13.905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a2d9c2a2a2a2a3%3A0x0!2sGuinayangan%2C%20Quezon!5e0!3m2!1sen!2sph!4v0"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rsvp" class="section">
+      <div class="container">
+        <header class="sectionHead">
+          <div><span class="sectionKicker reveal"><span class="kdot"></span> RSVP</span><h2 class="reveal">Will you celebrate with us?</h2></div>
+          <p class="sub reveal">Local test muna (saved in your browser). Later pwede i-connect to Google Sheets.</p>
+        </header>
+
+        <div class="rsvpGrid">
+          <div class="rsvpCard reveal">
+            <span class="badge">RSVP form</span>
+            <form id="rsvpInline" class="form">
+              <div class="row">
+                <div class="field"><label>Full name</label><input name="name" placeholder="e.g., Juan Dela Cruz" required /></div>
+                <div class="field"><label>Contact</label><input name="contact" placeholder="e.g., 09xx / email" required /></div>
+              </div>
+              <div class="row">
+                <div class="field"><label>Attending?</label>
+                  <select name="attending" required>
+                    <option value="Yes">Yes, I'll be there</option>
+                    <option value="No">Sorry, can't make it</option>
+                  </select>
+                </div>
+                <div class="field"><label>Guests</label>
+                  <select name="guests" required><option>1</option><option>2</option><option>3</option><option>4</option></select>
+                </div>
+              </div>
+              <div class="field"><label>Message</label><textarea name="notes" placeholder="Leave a sweet message for the couple…"></textarea></div>
+              <div class="formActions">
+                <button type="submit" class="btn primary">Submit RSVP</button>
+                <button type="button" class="btn" id="downloadRsvps">Download RSVPs (JSON)</button>
+                <button type="button" class="btn" id="clearRsvps">Clear local RSVPs</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="rsvpList reveal">
+            <span class="badge">Saved RSVPs (local)</span>
+            <div id="rsvpList" class="listBox"><p class="sub">No RSVPs yet—submit one to test.</p></div>
+          </div>
+        </div>
+
+        <footer class="footer reveal">
+          <div class="footLeft">
+            <span class="badge">Contact</span>
+            <p class="sub">For questions, message the couple:</p>
+            <div class="pillRow">
+              <span class="pillSmall">Jay Ar: +63 9XX XXX XXXX</span>
+              <span class="pillSmall">Princess: +63 9XX XXX XXXX</span>
+            </div>
+          </div>
+          <div class="footRight">
+            <button class="btn" id="openRsvpModal">Open RSVP modal</button>
+            <button class="btn primary" id="copySite">Copy website link</button>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="RSVP modal">
+      <div class="modalHeader"><strong>RSVP</strong><button class="close" id="closeRsvp" aria-label="Close">✕</button></div>
+      <form class="modalBody" id="rsvpModalForm">
+        <div class="field"><label>Full name</label><input name="name" required /></div>
+        <div class="field"><label>Contact</label><input name="contact" required /></div>
+        <div class="field"><label>Attending?</label><select name="attending" required><option value="Yes">Yes</option><option value="No">No</option></select></div>
+        <div class="field"><label>Guests</label><select name="guests" required><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+        <textarea name="notes" placeholder="Message for the couple…"></textarea>
+        <div class="modalActions"><button type="submit" class="btn primary">Submit RSVP</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modalOverlay" id="lightbox" aria-hidden="true">
+    <div class="modal modalWide">
+      <div class="modalHeader"><strong>Photo</strong><button class="close" id="closeLightbox" aria-label="Close">✕</button></div>
+      <div class="imgWrap"><img id="lightboxImg" alt="Gallery full" /></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Saved!</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="./assets/main.js"></script>
+</body>
+</html>
